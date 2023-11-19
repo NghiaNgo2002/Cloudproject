@@ -1,0 +1,80 @@
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item active">Statistic</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <div class="container-chart">
+        <div class="row">
+            <div class="col-7">
+                <div class="combobox">
+                    <div class="title-left">
+                        <h3>Revenue by year</h3>
+                    </div>
+                    <select class="wide w-100 combo-box" id="year">
+                        {{#each result}}
+                        <option value="{{this.year}}" selected>Year {{this.year}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div id="myChart" style="width:100%; height:280px"></div>
+
+
+            </div>
+            <div class="col">
+                <div class="top-ten">
+                    <div class="title-left">
+                        <h3>Top sale products in {{result.currentYear}}</h3>
+                        <button id="dayProduct" class="btn btn-primary btn-sm" title="Product Day" value="dayProduct">Day</button>
+                        <button id="monthProduct" class="btn btn-primary btn-sm" title="Product Month" value="monthProduct">Month</button>
+                        <button id="yearProduct" class="btn btn-primary btn-sm" title="Product Year" value="yearProduct">Year</button>
+                        <table id="statisticTable" class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">
+                                    Product
+                                </th>
+                                <th scope="col">
+                                    Counts
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                    <div class="products">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="title-left">
+                <h3>Revenue by Month in {{result.currentYear}}</h3>
+            </div>
+            <select class="combo-box" id="month">
+                {{#each monthNames}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            <div id="monthChart" style="width:100%; height:280px"></div>
+        </div>
+    </div>
+    </div>
+</main><!-- End #main -->
+
+{{#extend "scripts"}}
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript" src="/assets_statistic/main.js"></script>
+{{/extend}}

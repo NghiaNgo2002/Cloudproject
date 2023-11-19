@@ -1,0 +1,86 @@
+
+<main id="main" class="main">
+    <div class="d-flex flex-row bd-highlight mt-3 mr-2 justify-content-between">
+        <h5 class="ml-3">ACCOUNT MANAGEMENT BOARD</h5>
+        <a class="btn btn-dark" href="/admin/edit_accounts/add" role="button">
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Add Account
+        </a>
+    </div>
+
+    <div class="p-2 bg-muted">
+        <div class="card h-100 mb-100 shadow">
+            <h5 class="card-header bg-white text-light d-flex justify-content-between">
+                Accounts
+            </h5>
+
+            <br>
+            <form>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="phone_sorting" name="sorting">
+                    <label class="custom-control-label" for="phone_sorting">Phone number</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="date_sorting" name="sorting">
+                    <label class="custom-control-label" for="date_sorting">Created Date</label>
+                </div>
+                <input type="checkbox" id="desc_sorting" name="desc_sorting" disabled>
+                <label for="defaultCheck">Desc</label>
+                <br>
+            </form>
+            <div class="row">
+                <div class ="col-6">
+                    <button id="sortingbtn" class="btn btn-primary" disabled>Sort Now</button>
+                </div>
+                <div class="search-bar col-6">
+
+                    <input
+                            id="search"
+                            type="text"
+                            name="name"
+                            placeholder="Search"
+                            title="Enter search keyword"
+                    />
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="selected_form"><h5>Filtering with Ban or Unban:</h5></label>
+                <select class="form-control" id="selected_form">
+                </select>
+            </div>
+            <div class="card-body">
+                <table id="accountsTable" class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">
+                            ID
+                        </th>
+                        <th scope="col">
+                            Phone number
+                        </th>
+                        <th scope="col">
+                            Created date
+                        </th>
+                        <th scope="col">
+                            Status
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+                <ul class="pagination justify-content-center" style="margin:20px 0">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{{#extend "scripts"}}
+    <script type="text/javascript" src="/assets_editaccounts/js/editaccounts-ajax.js"></script>
+{{/extend}}

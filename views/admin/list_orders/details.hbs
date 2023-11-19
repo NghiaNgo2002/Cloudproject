@@ -1,0 +1,43 @@
+<main id="main" class="main">
+    <form method="POST">
+        <div class="card">
+            <h5 class="card-header">
+                Order Details
+            </h5>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="txtUserID" class="font-weight-bold">AccountID</label>
+                    <input type="text" class="form-control" id="txtUserID" name="UserID" value="{{detail.ID}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="txtUserName">Full Name</label>
+                    <input type="text" class="form-control" id="txtUserName" name="Fullname" value="{{detail.PHONENUMBER}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="txtPrice">Price</label>
+                    <input type="text" class="form-control" id="txtPrice" name="Price" value="{{detail.PRICE}}" readonly>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <a class="btn btn-outline-secondary" href="/admin/list_orders" role="button">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Back to List
+                </a>
+                {{#when detail.STATUS 'eq' 'Waiting'}}
+                    <button type="submit" class="btn btn-outline-dark" formaction="/admin/edit_orders/{{detail.idparam}}/del">
+                        <i class="fas fa-times    "></i>
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="btn btn-dark" formaction="/admin/edit_orders/{{detail.idparam}}/patch">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Done
+                    </button>
+                {{/when}}
+                {{#when detail.STATUS 'eq' 'Cancel'}}
+                    <label for="txtNotice" class="font-weight-bold">Already canceled</label>
+                {{/when}}
+            </div>
+        </div>
+    </form>
+</main>

@@ -1,0 +1,242 @@
+<main id="main" class="main">
+  <div class="alert alert-success alert-dismissible fade show" id="req-budget-alert" role="alert">
+  <strong>Send request successfully!</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  <div class="search-bar">
+    <form class="search-form d-flex align-items-center" id="search-bar-form">
+      <input
+        type="text"
+        name="name"
+        placeholder="Search"
+        title="Enter search keyword"
+      />
+      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+    </form>
+  </div><!-- End Search Bar -->
+<div class="dropdown ml-4">
+                                <button class="btn border dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sort by
+                                        </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId" style="">
+                                    <button class="dropdown-item" id="priceLow" type="button">Price (Low) </button>
+                                    <button class="dropdown-item" id="priceHigh" type="button">Price (High)</button>
+                                </div>
+                            </div>
+ <!-- Price range-->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#abc">
+  Add Budget Offline
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="abc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Budget Offline</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-outline" style="width: 22rem;">
+    <i class="fas fa-dollar-sign trailing"></i>
+    <input type="number" id="add-amount" min="0" step="5000" value="0" class="form-control form-icon-trailing" />
+    <label class="form-label" for="add-amount">Enter the amount</label>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel-add-budget" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="confirm-req-budget" class="btn btn-primary" onclick="confirmAddBudget()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal0">
+  Add Budget Online
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel0" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel0">Add Budget Online</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-outline" style="width: 22rem;">
+    <i class="fas fa-dollar-sign trailing"></i>
+    <input type="number" id="add-amount0" min="0" step="5000" value="0" class="form-control form-icon-trailing" />
+    <label class="form-label" for="add-amount">Enter the amount</label>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel-add-budget0" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="confirm-req-budget0" class="btn btn-primary" onclick="confirmAddBudgetOnline()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+
+          <li class="nav-item d-block d-lg-none">
+            <a class="nav-link nav-icon search-bar-toggle">
+              <i class="bi bi-search"></i>
+            </a>
+          </li><!-- End Search Icon-->
+  <section id="menu" class="menu">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Our Menu</h2>
+        <p>Check Our <span>Yummy Menu</span></p>
+      </div>
+
+      <ul
+        class="nav nav-tabs d-flex justify-content-center"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+
+<li class="nav-item">
+          <a
+            href="products_menu/tim-kiem"
+            class="nav-link active show"
+            data-bs-toggle="tab"
+            data-bs-target="#menu-search"
+            id="tim-kiem-nav"
+          >
+            <h4>Tìm kiếm</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+        <li class="nav-item">
+          <a
+            href="products_menu/com"
+            class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#menu-starters"
+            id="com-nav"
+
+          >
+            <h4>Cơm</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+        <li class="nav-item">
+          <a
+            href="products_menu/mi"
+            class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#menu-breakfast"
+            id="mi-nav"
+
+          >
+            <h4>Mì</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch" 
+            id="nuoc-nav"
+          >
+            <h4>Nước</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+        <li class="nav-item">
+          <a
+            href="products_menu/khac"
+            class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#menu-dinner"
+            id="khac-nav"
+
+          >
+            <h4>Khác</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+      </ul>
+
+      <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+<div class="tab-pane fade active show" id="menu-search">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Tìm kiếm</h3>
+          </div>
+          <div class="row gy-5" id="TimKiem-content">
+            
+          </div>
+        </div><!-- End Starter Menu Content -->
+
+        <div class="tab-pane fade" id="menu-starters">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Cơm</h3>
+          </div>
+          <div class="row gy-5" id="Com-content">
+           
+          </div>
+        </div><!-- End Starter Menu Content -->
+
+        <div class="tab-pane fade" id="menu-breakfast">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Mì</h3>
+          </div>
+
+          <div class="row gy-5" id="Mi-content">
+
+            
+
+          </div>
+        </div><!-- End Breakfast Menu Content -->
+
+        <div class="tab-pane fade" id="menu-lunch">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Nước</h3>
+          </div>
+
+          <div class="row gy-5" id="Nuoc-content">
+
+          
+
+          </div>
+        </div><!-- End Lunch Menu Content -->
+
+        <div class="tab-pane fade" id="menu-dinner">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Khác</h3>
+          </div>
+
+          <div class="row gy-5" id="Khac-content">
+
+           
+          </div>
+        </div><!-- End Dinner Menu Content -->
+
+      </div>
+
+     <ul id="pagination-demo" class="pagination-sm"></ul>
+    </div>
+  </section><!-- End Menu Section -->
+</main>

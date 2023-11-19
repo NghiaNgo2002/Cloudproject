@@ -1,0 +1,80 @@
+<main id="main" class="main">
+    <form method="POST">
+        <div class="card">
+            <h5 class="card-header">
+                Accounts Editor
+            </h5>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="txtUserID" class="font-weight-bold">AccountID</label>
+                    <input type="text" class="form-control" id="txtUserID" name="UserID" value="{{detail.ID}}" readonly>
+                </div>
+                {{#when detail.PHONENUMBER 'eq' 'admin'}}
+                    <div class="form-group">
+                        <label for="txtUserPhonenumber" class="font-weight-bold">Phone number</label>
+                        <input type="text" class="form-control" id="txtPhonenumber" name="PhoneNumber" value="{{detail.PHONENUMBER}}"
+                              readonly>
+                    </div>
+                {{else}}
+                    <div class="form-group">
+                        <label for="txtUserPhonenumber" class="font-weight-bold">Phone number</label>
+                        <input type="text" class="form-control" id="txtPhonenumber" name="PhoneNumber" value="{{detail.PHONENUMBER}}"
+                               autofocus>
+                    </div>
+                {{/when}}
+                <div class="form-group">
+                    <label for="txtUserName">Full Name</label>
+                    <input type="text" class="form-control" id="txtUserName" name="Fullname" value="{{detail.FULLNAME}}">
+                </div>
+                <div class="form-group">
+                    <label for="txtEmail">Email</label>
+                    <input type="text" class="form-control" id="txtEmail" name="Email" value="{{detail.EMAIL}}">
+                </div>
+                <div class="form-group" class="font-weight-bold">
+                    <label for="txtBudget" class="font-weight-bold">Budget</label>
+                    <input type="text" class="form-control" id="txtBudget" name="Budget" value="{{detail.BUDGET}}">
+                </div>
+                <div class="form-group">
+                    <label for="txtLevel" class="font-weight-bold">Level</label>
+                    <input type="text" class="form-control" id="txtLevel" name="Level" value="{{detail.LEVEL}}" readonly>
+                </div>
+                <div class="form-check form-group">
+                    <input name="isRePass" class="form-check-input" type="checkbox" value="true" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        <span class="font-weight-bold">Reset Password</span> into '123456'
+                    </label>
+                </div>
+
+            </div>
+            <div class="card-footer text-muted">
+                <a class="btn btn-outline-secondary" href="/admin/edit_accounts" role="button">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Back to List
+                </a>
+                {{#when detail.PHONENUMBER 'noteq' 'admin'}}
+                    {{#when detail.ACTIVE 'eq' 0}}
+                        <button type="submit" class="btn btn-outline-dark" formaction="/admin/edit_accounts/unlock">
+                            <i class="fa fa-unlock" aria-hidden="true"></i>
+                            Unlock
+                        </button>
+                    {{else}}
+                        <button type="submit" class="btn btn-outline-dark" formaction="/admin/edit_accounts/lock">
+                            <i class="fas fa-user-lock    "></i>
+                            Lock
+                        </button>
+                    {{/when}}
+
+                <button type="submit" class="btn btn-dark" formaction="/admin/edit_accounts/patch">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Save
+                </button>
+                {{else}}
+                <button type="submit" class="btn btn-dark" formaction="/admin/edit_accounts/patch">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Save
+                </button>
+                {{/when}}
+            </div>
+        </div>
+    </form>
+</main>

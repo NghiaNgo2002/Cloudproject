@@ -1,0 +1,59 @@
+<main id="main" class="main">
+    <form method="POST">
+        <div class="card">
+            <h5 class="card-header">
+                Add Account
+            </h5>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="txtId">ID</label>
+                    <input type="text" class="form-control" id="txtId" name="Id"  value = {{nextId}} readonly autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="txtPhonenumber">Phone Number</label>
+                    <input type="text" class="form-control" id="txtPhonenumber" name="Phonenumber"  autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="txtPass">Password</label>
+                    <input type="password" class="form-control" id="txtPass" name="Password">
+                </div>
+                <div class="form-group">
+                    <label for="txtUserName">Full Name</label>
+                    <input type="text" class="form-control" id="txtUserName" name="Fullname">
+                </div>
+                <div class="form-group">
+                    <label for="txtEmail">Email</label>
+                    <input type="text" class="form-control" id="txtEmail" name="Email">
+                </div>
+                <div class="form-group">
+                    <label for="txtDate">Date</label>
+                    <input type="text" class="form-control" id="date" name="Date" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="LevelSelect">Authorization</label>
+                    <select name="Level" id="LevelSelect" class="form-control">
+                        <option value="Bronze">Bronze</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Diamond">Diamond</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="txtUserName">Budget</label>
+                    <input type="text" class="form-control" id="txtBudget" name="Budget">
+                </div>
+
+            </div>
+            <div class="card-footer text-muted">
+                <a class="btn btn-outline-secondary" href="/admin/edit_accounts" role="button">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Back to List
+                </a>
+                <button type="submit" class="btn btn-dark" formaction="/admin/edit_accounts/add">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Add
+                </button>
+            </div>
+        </div>
+    </form>
+</main>

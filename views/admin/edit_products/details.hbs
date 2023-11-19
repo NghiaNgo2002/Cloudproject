@@ -1,0 +1,118 @@
+<main id="main" class="main">
+
+        <form method="POST" action="/admin/edit_products/del/{{detail.ID}}">
+            <div class="d-flex flex-row bd-highlight mt-3 mr-2 justify-content-between">
+                <h5 class="ml-3">
+                    Products Editor
+                </h5>
+                <div
+                    type="text" class="form-control" id="txtProductID" name="ProductID" value="{{detail.ID}}" style="display: none;">
+                </div>
+                <button type="submit" class="btn btn-outline-dark">
+                    <i class="fas fa-Product-alt-slash "></i>
+                    Delete Product
+                </button>
+            </div>
+        </form>
+    <div class="card">
+        <form method="POST" encType="multipart/form-data">
+
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="txtProductID" class="font-weight-bold">ProductID</label>
+                    <input type="text" class="form-control" id="txtProductID" name="ProductID" value="{{detail.ID}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="txtProductName" class="font-weight-bold">Name</label>
+                    <input type="text" class="form-control" id="txtProductName" name="NAME" value="{{detail.NAME}}">
+                </div>
+
+                <div class="form-group" class="font-weight-bold">
+                    <label for="txtPRICE" class="font-weight-bold">PRICE</label>
+                    <input type="text" class="form-control" id="txtPRICE" name="PRICE" value="{{detail.PRICE}}">
+                </div>
+                <div class="form-group">
+                    <label for="CategorySelect">Category</label>
+                    <select name="Category" id="CategorySelect" class="form-control">
+                        {{#when detail.CATEGORY 'eq' "Cơm"}}
+                            <option value="Cơm" selected>Cơm</option>
+                            <option value="Mì">Mì</option>
+                            <option value="Nước">Nước</option>
+                            <option value="Khác">Khác</option>
+                        {{/when}}
+                        {{#when detail.CATEGORY 'eq' "Mì"}}
+                            <option value="Cơm">Cơm</option>
+                            <option value="Mì" selected>Mì</option>
+                            <option value="Nước">Nước</option>
+                            <option value="Khác">Khác</option>
+                        {{/when}}
+                        {{#when detail.CATEGORY 'eq' "Nước"}}
+                            <option value="Cơm" >Cơm</option>
+                            <option value="Mì">Mì</option>
+                            <option value="Nước" selected>Nước</option>
+                            <option value="Khác">Khác</option>
+                        {{/when}}
+                        {{#when detail.CATEGORY 'eq' "Khác"}}
+                            <option value="Cơm" >Cơm</option>
+                            <option value="Mì">Mì</option>
+                            <option value="Nước">Nước</option>
+                            <option value="Khác" selected>Khác</option>
+                        {{/when}}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="StatusSelect">Status</label>
+                    <select name="Status" id="StatusSelect" class="form-control">
+                        {{#when detail.STATUS 'eq' "On Stock"}}
+                            <option value="On Stock" selected>On Stock</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                            <option value="Suspend">Suspend</option>
+                        {{/when}}
+                        {{#when detail.STATUS 'eq' "Out of Stock"}}
+                            <option value="On Stock" >On Stock</option>
+                            <option value="Out of Stock"selected>Out of Stock</option>
+                            <option value="Suspend">Suspend</option>
+                        {{/when}}
+                        {{#when detail.STATUS 'eq' "Suspend"}}
+                            <option value="On Stock" >On Stock</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                            <option value="Suspend"selected>Suspend</option>
+                        {{/when}}
+                    </select>
+                </div>
+                <div style="display: none;">
+                    <label for="txtProductID" class="font-weight-bold">ProductID</label>
+                    <input type="text" class="form-control" id="txtProductID" name="ProductID" value="{{detail.ID}}" >
+                </div>
+
+                <label for="txtIMAGE" class="font-weight-bold">IMAGE</label>
+                <input type="file" name="image" accept="image/*"/>
+                <div class="card">
+                    <img id="image" class="card__image" src="/assets_menu/img/menu/{{detail.IMAGE}}" alt="" width="400" height="300"/>
+                </div>
+                <a href="/admin/edit_products/remove-image/{{detail.ID}}" class="btn btn-danger " title="Remove product image"><i class="bi bi-trash"></i> Remove Image</a>
+            </div>
+            <div class="card-footer text-muted">
+                <a class="btn btn-outline-secondary" href="/admin/edit_products" role="button">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Back to List
+                </a>
+
+                <button type="submit" class="btn btn-dark" formaction="/admin/edit_products/patch">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Save
+                </button>
+            </div>
+        </form>
+
+        <form method="POST" encType="multipart/form-data">
+
+        </form>
+    </div>
+
+</main>
+
+{{#extend "scripts"}}
+    <script type="text/javascript" src="/assets_editproducts/js/upload_image.js"></script>
+{{/extend}}
