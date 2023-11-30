@@ -5,11 +5,11 @@ const db = { connection: null };
 
 (async () => {
   db.connection = await mysql.createConnection({
-    host: "db4free.net",
+    host: "mydb.cyrfdzhk5vns.ap-southeast-1.rds.amazonaws.com",
     port: 3306,
-    user:  "nghiangoo0810",
-    password: "f3530af5",
-    database: "store_11",
+    user: "admin",
+    password: "admin1234",
+    database: "store",
   });
   console.log("Database connected!");
 })();
